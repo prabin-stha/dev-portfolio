@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+:root {
+  /* Fonts */
+  --font-primary: 'Poppins', sans-serif;
+  --font-greet: 'Shizuru', cursive;
+
+  /* Colors */
+  --blue-dark: hsl(198, 79%, 15%);
+  --blue-light: hsl(198, 79%, 25%);
+  --white-dark: hsl(60, 28%, 72%);
+  --white-light: hsl(60, 28%, 92%);
+}

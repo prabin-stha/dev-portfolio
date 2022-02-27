@@ -2,12 +2,169 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" />
+
+    <!-- Favicon -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Prabin Shrestha</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Swiper CSS -->
+
+    <!-- Boxicons -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- Javascript -->
+    <script type="module" src="main.js"></script>
+
+    <!-- prefetch and prerender HTML, CSS and JS for Resume page -->
+    <link rel="prerender" href="resume/index.html" />
+    <link rel="prefetch" href="resume/styles.css" as="style" />
+    <link rel="prefetch" href="resume/main.js" as="script" />
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
+    <!-- Navigation Menu -->
+    <nav class="nav">
+      <ul class="nav__list">
+        <li class="nav__item">
+          <a href="#header" class="nav__link nav__link-active"
+            ><i class="bx bx-home"></i
+          ></a>
+        </li>
+        <li class="nav__item">
+          <a href="#about" class="nav__link"><i class="bx bx-user"></i></a>
+        </li>
+        <li class="nav__item">
+          <a href="#skills" class="nav__link"><i class="bx bx-book"></i></a>
+        </li>
+        <li class="nav__item">
+          <a href="#works" class="nav__link"
+            ><i class="bx bx-code-block"></i
+          ></a>
+        </li>
+        <li class="nav__item">
+          <a href="#contact" class="nav__link"
+            ><i class="bx bx-message-square-detail"></i
+          ></a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Main Section -->
+    <main class="main" id="main">
+      <!-- Header Section -->
+      <header class="header" id="header">
+        <div class="container">
+          <a href="index.html" class="header__logo container">Prabin.S</a>
+        </div>
+      </header>
+
+      <!-- Home Section -->
+      <section class="section" id="home">
+        <div class="home__box">
+          <div class="home__title">
+            I am &nbsp;<span class="home__name">Prabin Shrestha</span>
+            <p class="home__subtitle">Frontend Developer</p>
+          </div>
+        </div>
+        <div class="button home__button">
+          <a class="button__link" href="#">View Resume</a>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section class="section" id="about">
+        <img
+          class="about__layer"
+          src="img/wavesOpacityTop.svg"
+          alt="svg layer"
+        />
+        <div class="section__container">
+          <div class="about__container container">
+            <div class="about__title">
+              A Little Bit About
+              <div class="about__me">Me</div>
+            </div>
+            <div class="about__desc">
+              <p class="about__p about__p-first">
+                I am a frontend web developer based in Kathmandu, with a passion
+                for web design. I create custom websites to assist businesses in
+                becoming more successful online.
+              </p>
+              <p class="about__p">
+                I have been coding since I was a kid and and it's something I
+                really enjoy doing. I can be a little awkward at times, but I am
+                always focused and eager to learn new things in order to
+                improve.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section class="section" id="skills">
+        <div class="section__container">
+          <div class="skills__container container">
+            <div class="skills__title">SKILLS</div>
+            <div class="skills__cards">
+              <div class="skills__card">
+                <div class="skills__card-title">Frontend</div>
+                <div class="skills__card-desc">
+                  HTML5, CSS3,Javascript, React
+                </div>
+              </div>
+              <div class="skills__card">
+                <div class="skills__card-title">Backend</div>
+                <div class="skills__card-desc">Postgresql, node</div>
+              </div>
+              <div class="skills__card skills__card-last">
+                <div class="skills__card-title">Tools</div>
+                <div class="skills__card-desc">Git, Figma</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <img
+          class="skills__layer"
+          src="img/wavesOpacityBottom.svg"
+          alt="svg layer"
+        />
+      </section>
+
+      <!-- Works Section -->
+      <section class="works" id="works">
+        <div class="container">
+          <div class="works__title"></div>
+          <!-- <div class="works__cards">
+          <div class="works__card">
+            <div class="works__card-title">Bookworm</div>
+            <div class="works__card-desc">
+              An simple website for searching book information, adding
+              bookmarks and taking notes.
+            </div>
+            <div class="works__card-second-title">Technology used</div>
+            <div class="works__card-second-title-desc">
+              HTML5, CSS3, Javascript
+            </div>
+            <div class="skils__card-links">
+              <a href="#" class="works__card-demo">Live Demo</a>
+              <a href="#" class="works_card-more">Learn More</a>
+            </div>
+          </div>
+        </div> -->
+        </div>
+      </section>
+      <section class="contact" id="contact">
+        <div class="container">
+          <div class="contact__title"></div>
+        </div>
+      </section>
+      <footer class="footer"></footer>
+    </main>
   </body>
 </html>
