@@ -7,12 +7,11 @@
   --font-family-heading: 'Francois One', sans-serif;
 
   /* Font Size */
-  --font-size-h1: 1.5rem;
-  --font-size-h2: 1.2rem;
+  --font-size-h1: 2.5rem;
+  --font-size-h2: 1.5rem;
   --font-size-h3: 1rem;
   --font-size-normal: 0.75rem;
   --font-size-small: 0.625rem;
-  --font-size-tiny: 0.625rem;
 
   /* Font Weight */
   --font-weight-regular: 400;
@@ -63,7 +62,12 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 body,
@@ -117,10 +121,6 @@ img {
   height: auto;
 }
 
-section {
-  overflow: hidden;
-}
-
 /** ---------- Reusable CSS Classes ---------- */
 .container {
   max-width: var(--container-width);
@@ -128,9 +128,21 @@ section {
   padding: 0 2rem;
 }
 
+.section {
+  overflow: hidden;
+}
+
 .section__container {
   transition: all 700ms var(--cubic-bezier);
   transition-property: opacity, transform;
+}
+
+.section__title {
+  font-family: var(--font-family-heading);
+  color: var(--white-light);
+  padding-bottom: 2.5rem;
+  letter-spacing: 5px;
+  font-size: var(--font-size-h2);
 }
 
 .button {
@@ -166,6 +178,7 @@ section {
   overflow: hidden;
   backdrop-filter: blur(15px);
   transition: color 100ms ease-in;
+  cursor: pointer;
 }
 
 .button__link:hover {
@@ -266,14 +279,14 @@ section {
     transparent
   );
   transform: skewX(45deg) translateX(-100%);
-  animation: nav-shine 5s var(--cubic-bezier) infinite;
+  animation: nav-shine 4s var(--cubic-bezier) infinite;
   animation-delay: 5s;
 }
 
 @keyframes nav-shine {
   20%,
   100% {
-    transform: translateX(200%);
+    transform: translateX(250%);
   }
 }
 
@@ -321,6 +334,7 @@ section {
   justify-content: space-evenly;
   background-color: var(--blue-dark);
   height: 30rem;
+  overflow-x: hidden;
 }
 
 .home__box {
@@ -417,8 +431,7 @@ section {
 #about {
   position: relative;
   background-color: var(--blue-extra-dark);
-  padding-top: 7rem;
-  padding-bottom: 4rem;
+  padding-top: 9rem;
 }
 
 .about__container {
@@ -428,14 +441,8 @@ section {
 }
 
 .about__title {
-  position: relative;
   display: flex;
   gap: 0.8rem;
-  font-family: var(--font-family-heading);
-  color: var(--white-light);
-  padding-bottom: 2.5rem;
-  letter-spacing: 5px;
-  font-size: var(--font-size-h2);
 }
 
 .about__me {
@@ -445,6 +452,7 @@ section {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: pop 1.2s infinite;
+  cursor: pointer;
 }
 
 @keyframes pop {
@@ -484,7 +492,6 @@ section {
 
 .about__p {
   max-width: 600px;
-  text-align: justify;
 }
 
 .about__p-first {
@@ -504,21 +511,13 @@ section {
   position: relative;
   background-color: var(--blue-extra-dark);
   padding-bottom: 7rem;
+  padding-top: 6rem;
 }
 
 .skills__container {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.skills__title {
-  position: relative;
-  font-family: var(--font-family-heading);
-  color: var(--white-light);
-  padding-bottom: 2.5rem;
-  letter-spacing: 5px;
-  font-size: var(--font-size-h2);
 }
 
 .skills__cards {
@@ -549,7 +548,7 @@ section {
   padding: 1rem 0;
   text-align: center;
   letter-spacing: 2px;
-  font-weight: var(--font-weight-medium);
+  font-size: 1rem;
 }
 
 .skills__card-desc {
@@ -568,9 +567,239 @@ section {
 }
 
 /** Works Section */
-.works {
+#works {
   position: relative;
+  padding-top: 5rem;
+  padding-bottom: 6rem;
   background-color: var(--blue-dark);
+}
+
+.works__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.works__cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.works__card {
+  height: 350px;
+  width: 280px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(
+    90deg,
+    rgba(204, 204, 164, 0.3) 0%,
+    rgba(204, 204, 164, 0.08) 100%
+  );
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  color: var(--white-light);
+  overflow: hidden;
+  backdrop-filter: blur(15px);
+}
+
+.works__card-img {
+  transform: translateX(-6px);
+}
+
+.works__card-title {
+  font-size: var(--font-size-h3);
+  letter-spacing: 2px;
+  padding-bottom: 0.5rem;
+}
+
+.works__card-desc {
+  color: var(--white-dark);
+  padding-bottom: 1rem;
+}
+
+.works__card-second-title {
+  padding-bottom: 0.2rem;
+  letter-spacing: 2px;
+}
+
+.works__card-links {
+  display: flex;
+  justify-content: space-between;
+}
+
+.works__card-link {
+  background-color: var(--blue-extra-dark);
+  color: var(--white-light);
+  text-decoration: underline;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  transition: transform 150ms var(--cubic-bezier);
+}
+
+.works__card-link:hover {
+  transform: scale(1.2);
+}
+
+/** ---------- Contact Section ---------- */
+#contact {
+  background-color: var(--blue-dark);
+  padding-bottom: 2rem;
+}
+
+.contact__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact__form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.contact__label {
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 2px;
+  transform: translateX(5px);
+}
+
+.contact__elements {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact__element {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  color: var(--white-dark);
+}
+
+.contact__input {
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  padding: 5px 10px;
+  background-color: var(--white-dark);
+  color: var(--blue-dark);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-small);
+}
+
+.contact_input-textarea {
+  resize: none;
+}
+
+.contact__button-link {
+  border: none;
+  background: rgba(255, 255, 255, 0);
+  color: var(--white-light);
+  z-index: var(--z-btn);
+  cursor: pointer;
+}
+
+.contact__form > .contact__button::before,
+.contact__form > .contact__button::after {
+  width: 0;
+}
+
+.contact__button-show-line > .contact__button::before,
+.contact__button-show-line > .contact__button::after {
+  animation: show-line 500ms var(--cubic-bezier);
+  animation-delay: 600ms;
+  animation-fill-mode: forwards;
+}
+
+@keyframes show-line {
+  from {
+    opacity: 0;
+    width: 0vw;
+  }
+  to {
+    opacity: 1;
+    width: 50vw;
+  }
+}
+
+.button__link:hover > .contact__button-link {
+  color: var(--white-dark);
+}
+
+.contact__social-links {
+  position: absolute;
+  bottom: 50%;
+  left: 13.5rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  opacity: 0;
+}
+
+.contact__social-link {
+  color: var(--white-light);
+  font-size: 1.3rem;
+}
+
+.contact__social-link:hover {
+  color: var(--white-dark);
+  transform: translateY(-2px);
+}
+
+.contact__social-line {
+  height: 0;
+  width: 4px;
+  border-radius: 10px 10px 0 0;
+  background-color: var(--white-light);
+}
+
+.contact__show-socials {
+  animation: social 400ms var(--cubic-bezier);
+  animation-delay: 900ms;
+  animation-fill-mode: forwards;
+}
+
+@keyframes social {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.contact__show-social-line {
+  animation: social-line 500ms var(--cubic-bezier);
+  animation-delay: 1000ms;
+  animation-fill-mode: forwards;
+}
+
+@keyframes social-line {
+  from {
+    height: 0;
+  }
+  to {
+    height: 5rem;
+  }
+}
+
+.section__contact-container {
+  transition: all 700ms var(--cubic-bezier);
+  transition-property: opacity, transform;
+}
+
+/** ---------- Footer ---------- */
+.footer {
+  background-color: var(--blue-extra-dark);
+  height: 5rem;
 }
 
 /** ---------- Media ---------- */
@@ -591,17 +820,21 @@ section {
     grid-template-columns: 1fr 1fr;
   }
 
-  .skills__cards-blob {
-    display: block;
-  }
-
-  .skills__cards-rect {
-    display: none;
-  }
-
   .skills__card-last {
     grid-column: 1 / span 2;
     justify-self: center;
+  }
+
+  .contact__input {
+    width: 16rem;
+  }
+
+  .contact__social-links {
+    left: 16rem;
+  }
+
+  .works__card {
+    width: 300px;
   }
 }
 
