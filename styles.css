@@ -68,6 +68,25 @@ html {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: var(--white-dark);
+}
+
+html::-webkit-scrollbar {
+  width: 6px;
+  background-color: var(--white-dark);
+}
+
+html::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #0d5472;
 }
 
 body,
@@ -78,10 +97,11 @@ textarea {
   font-size: var(--font-size-normal);
   font-weight: var(--font-weight-regular);
   letter-spacing: 1px;
+  cursor: none;
 }
 
-main {
-  height: 100vh;
+label {
+  cursor: none;
 }
 
 h1,
@@ -108,10 +128,11 @@ ul {
 
 a {
   text-decoration: none;
+  cursor: none;
 }
 
 button {
-  cursor: pointer;
+  /* cursor: pointer; */
   border: none;
   outline: none;
 }
@@ -178,7 +199,7 @@ img {
   overflow: hidden;
   backdrop-filter: blur(15px);
   transition: color 100ms ease-in;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .button__link:hover {
@@ -441,18 +462,21 @@ img {
 }
 
 .about__title {
-  display: flex;
-  gap: 0.8rem;
+  position: relative;
+  transform: translateX(-2rem);
 }
 
 .about__me {
+  position: absolute;
+  right: -3.5rem;
+  bottom: 0;
   font-weight: var(--font-weight-semi-bold);
   background: -webkit-linear-gradient(#f2994a, #f2c94c);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: pop 1.2s infinite;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 @keyframes pop {
@@ -691,7 +715,6 @@ img {
   background-color: var(--white-dark);
   color: var(--blue-dark);
   font-weight: var(--font-weight-medium);
-  font-size: var(--font-size-small);
 }
 
 .contact_input-textarea {
@@ -703,7 +726,7 @@ img {
   background: rgba(255, 255, 255, 0);
   color: var(--white-light);
   z-index: var(--z-btn);
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .contact__form > .contact__button::before,
@@ -746,7 +769,7 @@ img {
 
 .contact__social-link {
   color: var(--white-light);
-  font-size: 1.3rem;
+  font-size: 1.5rem;
 }
 
 .contact__social-link:hover {
@@ -762,8 +785,8 @@ img {
 }
 
 .contact__show-socials {
-  animation: social 400ms var(--cubic-bezier);
-  animation-delay: 900ms;
+  animation: social 200ms var(--cubic-bezier);
+  animation-delay: 800ms;
   animation-fill-mode: forwards;
 }
 
@@ -800,6 +823,39 @@ img {
 .footer {
   background-color: var(--blue-extra-dark);
   height: 5rem;
+}
+
+/** ---------- Cursor ---------- */
+.cursor {
+  height: 16px;
+  width: 16px;
+  border: 3px solid #f1f1e6;
+  border-radius: 10%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: all 150ms var(--cubic-bezier);
+  /* transform: rotate(45deg); */
+  transition-property: transform, background;
+  border-radius: 50%;
+  mix-blend-mode: difference;
+  z-index: 999;
+}
+
+.cursor.hover {
+  transform: scale(3);
+  background: #f1f1e6;
+}
+
+.cursor.hover-animate-click {
+  animation: cursor-hover 150ms var(--cubic-bezier);
+}
+
+@keyframes cursor-hover {
+  to {
+    transform: scale(2);
+    background: #f1f1e6;
+  }
 }
 
 /** ---------- Media ---------- */

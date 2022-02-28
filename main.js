@@ -17,8 +17,6 @@ VanillaTilt.init(document.querySelectorAll('.works__card'), {
   'max-glare': 0.5,
 });
 
-//* Smooth Scroll
-
 //* Observing current position of window and applying section animations
 const sectionContainer = document.querySelectorAll('.section__container');
 const sectionObserver = new IntersectionObserver(
@@ -65,15 +63,33 @@ contactContainer.classList.add('section__hidden');
 
 //* Observing the size of the body element and performing some operations
 const bodyObserver = new ResizeObserver(entries => {
-  const aboutTitle = document.querySelector('.about__title');
-  const navItems = document.querySelectorAll('.nav__item .bx');
-  const bodyObj = entries[0];
-
-  if (bodyObj.contentRect.width >= 468) {
-    aboutTitle.innerHTML = 'A LITTLE BIT ABOUT <div class="about__me">Me</div>';
-  } else if (bodyObj.contentRect.width < 468) {
-    aboutTitle.innerHTML = 'ABOUT <div class="about__me">Me</div>';
-  }
+  // const aboutTitle = document.querySelector('.about__title');
+  // const bodyObj = entries[0];
+  // if (bodyObj.contentRect.width >= 468) {
+  //   aboutTitle.innerHTML =
+  //     'A LITTLE BIT ABOUT <div class="about__me cursor-hover">ME</div>';
+  // } else if (bodyObj.contentRect.width < 468) {
+  //   aboutTitle.innerHTML = 'ABOUT <div class="about__me cursor-hover">ME</div>';
+  // }
 });
 
 bodyObserver.observe(document.body);
+
+//* Cursor
+const mouseCursor = document.querySelector('.cursor');
+const mouseHoverEl = document.querySelectorAll('.cursor-hover');
+
+window.addEventListener('mousemove', e => {
+  mouseCursor.style.top = e.clientY + 'px';
+  mouseCursor.style.left = e.clientX + 'px';
+});
+
+mouseHoverEl.forEach(el => {
+  el.addEventListener('mouseover', () => {
+    mouseCursor.classList.add('hover');
+  });
+
+  el.addEventListener('mouseleave', () => {
+    mouseCursor.classList.remove('hover');
+  });
+});

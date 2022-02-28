@@ -18,8 +18,6 @@
       href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"
       rel="stylesheet"
     />
-    <!-- Javascript -->
-    <script type="module" src="main.js"></script>
 
     <!-- prefetch and prerender HTML, CSS and JS for Resume page -->
     <link rel="prerender" href="resume/index.html" />
@@ -31,23 +29,27 @@
     <nav class="nav">
       <ul class="nav__list">
         <li class="nav__item">
-          <a href="#header" class="nav__link nav__link-active"
+          <a href="#header" class="nav__link nav__link-active cursor-hover"
             ><i class="bx bx-home"></i
           ></a>
         </li>
         <li class="nav__item">
-          <a href="#about" class="nav__link"><i class="bx bx-user"></i></a>
+          <a href="#about" class="nav__link cursor-hover"
+            ><i class="bx bx-user"></i
+          ></a>
         </li>
         <li class="nav__item">
-          <a href="#skills" class="nav__link"><i class="bx bx-book"></i></a>
+          <a href="#skills" class="nav__link cursor-hover"
+            ><i class="bx bx-book"></i
+          ></a>
         </li>
         <li class="nav__item">
-          <a href="#works" class="nav__link"
+          <a href="#works" class="nav__link cursor-hover"
             ><i class="bx bx-code-block"></i
           ></a>
         </li>
         <li class="nav__item">
-          <a href="#contact" class="nav__link"
+          <a href="#contact" class="nav__link cursor-hover"
             ><i class="bx bx-message-square-detail"></i
           ></a>
         </li>
@@ -59,7 +61,9 @@
       <!--* Header Section -->
       <header class="header" id="header">
         <div class="container">
-          <a href="index.html" class="header__logo container">Prabin.S</a>
+          <a href="index.html" class="header__logo container cursor-hover"
+            >Prabin.S</a
+          >
         </div>
       </header>
 
@@ -72,7 +76,7 @@
           </div>
         </div>
         <div class="button home__button">
-          <a class="button__link" href="#">View Resume</a>
+          <a class="button__link cursor-hover" href="#">View Resume</a>
         </div>
       </section>
 
@@ -85,9 +89,11 @@
         />
         <div class="section__container">
           <div class="about__container container">
-            <div class="section__title about__title">
-              A LITTLE BIT ABOUT
-              <div class="about__me">Me</div>
+            <div class="section__title">
+              <div class="about__title">
+                ABOUT
+                <div class="about__me cursor-hover">ME</div>
+              </div>
             </div>
             <div class="about__desc">
               <p class="about__p about__p-first">
@@ -110,19 +116,19 @@
       <section class="section" id="skills">
         <div class="section__container">
           <div class="skills__container container">
-            <div class="section__title">SKILLS</div>
+            <div class="section__title cursor-hover">SKILLS</div>
             <div class="skills__cards">
-              <div class="skills__card">
+              <div class="skills__card cursor-hover">
                 <div class="skills__card-title">Frontend</div>
                 <div class="skills__card-desc">
                   HTML5, CSS3,Javascript, React
                 </div>
               </div>
-              <div class="skills__card">
+              <div class="skills__card cursor-hover">
                 <div class="skills__card-title">Backend</div>
                 <div class="skills__card-desc">Postgresql, node</div>
               </div>
-              <div class="skills__card skills__card-last">
+              <div class="skills__card cursor-hover skills__card-last">
                 <div class="skills__card-title">Tools</div>
                 <div class="skills__card-desc">Git, Figma</div>
               </div>
@@ -140,9 +146,9 @@
       <section class="section" id="works">
         <div class="section__container">
           <div class="works__container container">
-            <div class="section__title">WORKS</div>
+            <div class="section__title cursor-hover">WORKS</div>
             <div class="works__cards">
-              <div class="works__card">
+              <div class="works__card cursor-hover">
                 <div class="works__card-info-container">
                   <div class="works__card-header">
                     <img
@@ -183,7 +189,7 @@
       <section class="section" id="contact">
         <div class="section__contact-container">
           <div class="contact__container container">
-            <div class="section__title">SAY HELLO!</div>
+            <div class="section__title cursor-hover">SAY HELLO!</div>
             <form class="contact__form">
               <div class="contact__elements">
                 <div class="contact__element">
@@ -215,18 +221,18 @@
                   ></textarea>
                 </div>
               </div>
-              <div class="button contact__button">
+              <div class="button contact__button cursor-hover">
                 <div class="contact__social-links">
-                  <a href="#"
+                  <a href="#" class="cursor-hover"
                     ><i class="bx bxl-github contact__social-link"></i
                   ></a>
-                  <a href="#"
+                  <a href="#" class="cursor-hover"
                     ><i class="bx bxl-linkedin contact__social-link"></i
                   ></a>
-                  <a href="#"
+                  <a href="#" class="cursor-hover"
                     ><i class="bx bxl-gmail contact__social-link"></i
                   ></a>
-                  <a href="#"
+                  <a href="#" class="cursor-hover"
                     ><i class="bx bxl-whatsapp contact__social-link"></i
                   ></a>
                   <div class="contact__social-line"></div>
@@ -242,9 +248,12 @@
           </div>
         </div>
       </section>
-      <footer class="footer">
-        <div class="footer__container container"></div>
-      </footer>
     </main>
+    <footer class="footer">
+      <div class="footer__container container"></div>
+    </footer>
+    <div class="cursor"></div>
+    <!-- Javascript -->
+    <script type="module" src="main.js"></script>
   </body>
 </html>
