@@ -9,9 +9,7 @@
     <title>Prabin Shrestha</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="styles.css" />
-
-    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="./styles.css" />
 
     <!-- Boxicons -->
     <link
@@ -56,10 +54,10 @@
       </ul>
     </nav>
 
-    <!-- Main Section -->
+    <!--* Main Section -->
     <main class="main" id="main">
       <!--* Header Section -->
-      <header class="header" id="header">
+      <header class="header section" id="header">
         <div class="container">
           <a href="index.html" class="header__logo container cursor-hover"
             >Prabin.S</a
@@ -68,7 +66,7 @@
       </header>
 
       <!--* Home Section -->
-      <section class="section" id="home">
+      <section class="" id="home">
         <div class="home__box">
           <div class="home__title">
             I am &nbsp;<span class="home__name">Prabin Shrestha</span>
@@ -76,7 +74,12 @@
           </div>
         </div>
         <div class="button home__button">
-          <a class="button__link cursor-hover" href="#">View Resume</a>
+          <a
+            class="button__link cursor-hover"
+            target="_blank"
+            href="resume/index.html"
+            >View Resume</a
+          >
         </div>
       </section>
 
@@ -90,9 +93,9 @@
         <div class="section__container">
           <div class="about__container container">
             <div class="section__title">
-              <div class="about__title">
-                ABOUT
-                <div class="about__me cursor-hover">ME</div>
+              <div class="section__title-gif cursor-hover">
+                ABOUT ME
+                <img src="img/me.jpg" alt="Me" class="section__gif" />
               </div>
             </div>
             <div class="about__desc">
@@ -116,7 +119,14 @@
       <section class="section" id="skills">
         <div class="section__container">
           <div class="skills__container container">
-            <div class="section__title cursor-hover">SKILLS</div>
+            <div class="section__title section__title-gif cursor-hover">
+              SKILLS
+              <img
+                src="img/skills.gif"
+                alt="Cat Skateboarding"
+                class="section__gif"
+              />
+            </div>
             <div class="skills__cards">
               <div class="skills__card cursor-hover">
                 <div class="skills__card-title">Frontend</div>
@@ -125,13 +135,13 @@
                 </div>
               </div>
               <div class="skills__card cursor-hover">
-                <div class="skills__card-title">Backend</div>
-                <div class="skills__card-desc">Postgresql, node</div>
-              </div>
-              <div class="skills__card cursor-hover skills__card-last">
                 <div class="skills__card-title">Tools</div>
                 <div class="skills__card-desc">Git, Figma</div>
               </div>
+              <!-- <div class="skills__card cursor-hover skills__card-last">
+                <div class="skills__card-title">Backend</div>
+                <div class="skills__card-desc">Postgresql, node</div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -143,10 +153,13 @@
       </section>
 
       <!--* Works Section -->
-      <section class="section" id="works">
+      <section class="" id="works">
         <div class="section__container">
           <div class="works__container container">
-            <div class="section__title cursor-hover">WORKS</div>
+            <div class="section__title section__title-gif cursor-hover">
+              WORKS
+              <img src="img/works.gif" alt="Cat Typing" class="section__gif" />
+            </div>
             <div class="works__cards">
               <div class="works__card cursor-hover">
                 <div class="works__card-info-container">
@@ -189,7 +202,14 @@
       <section class="section" id="contact">
         <div class="section__contact-container">
           <div class="contact__container container">
-            <div class="section__title cursor-hover">SAY HELLO!</div>
+            <div class="section__title section__title-gif cursor-hover">
+              SAY HELLO!
+              <img
+                src="img/contact.gif"
+                alt="Cat Greeting"
+                class="section__gif"
+              />
+            </div>
             <form class="contact__form">
               <div class="contact__elements">
                 <div class="contact__element">
@@ -221,23 +241,35 @@
                   ></textarea>
                 </div>
               </div>
-              <div class="button contact__button cursor-hover">
+              <div class="button contact__button">
                 <div class="contact__social-links">
-                  <a href="#" class="cursor-hover"
+                  <a
+                    href="https://github.com/prabin-stha"
+                    target="_blank"
+                    class="cursor-hover"
                     ><i class="bx bxl-github contact__social-link"></i
                   ></a>
-                  <a href="#" class="cursor-hover"
+                  <a
+                    href="https://www.linkedin.com/in/prabin-shrestha-7b103521b/"
+                    target="_blank"
+                    class="cursor-hover"
                     ><i class="bx bxl-linkedin contact__social-link"></i
                   ></a>
-                  <a href="#" class="cursor-hover"
+                  <a
+                    href="mailto:shresthaprabin315@gmail.com"
+                    target="_blank"
+                    class="cursor-hover"
                     ><i class="bx bxl-gmail contact__social-link"></i
                   ></a>
-                  <a href="#" class="cursor-hover"
+                  <a
+                    href="https://wa.me/9779849338059"
+                    target="_blank"
+                    class="cursor-hover"
                     ><i class="bx bxl-whatsapp contact__social-link"></i
                   ></a>
                   <div class="contact__social-line"></div>
                 </div>
-                <a href="#" class="button__link"
+                <a href="" class="button__link cursor-hover"
                   ><input
                     class="contact__button-link"
                     type="submit"
@@ -249,10 +281,15 @@
         </div>
       </section>
     </main>
+
+    <!--* Footer Section -->
     <footer class="footer">
-      <div class="footer__container container"></div>
+      <div class="footer__container container">
+        <h3 class="footer__title">Prabin Shrestha's Developer Portfolio</h3>
+      </div>
     </footer>
     <div class="cursor"></div>
+
     <!-- Javascript -->
     <script type="module" src="main.js"></script>
   </body>
