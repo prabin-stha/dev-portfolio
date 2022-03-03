@@ -4,7 +4,7 @@ import 'vanilla-tilt';
  ** Tilt card animation
  */
 (function () {
-  VanillaTilt.init(document.querySelectorAll('.skills__card'), {
+  VanillaTilt.init(document.querySelectorAll('.about__card'), {
     max: 25,
     speed: 400,
     scale: 1.1,
@@ -84,7 +84,6 @@ import 'vanilla-tilt';
         .filter(el => el != entry.target.id)
         .forEach(el => {
           const element = document.querySelector('a[href="#' + el + '"]');
-          console.log(element);
           if (element.classList.contains('active')) {
             element.classList.remove('active');
           }
@@ -110,7 +109,6 @@ import 'vanilla-tilt';
         .filter(el => el != entry.target.id)
         .forEach(el => {
           const element = document.querySelector('a[href="#' + el + '"]');
-          console.log(element);
           if (element.classList.contains('active')) {
             element.classList.remove('active');
           }
