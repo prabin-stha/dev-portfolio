@@ -1,24 +1,76 @@
 import 'vanilla-tilt';
 
 /**
- ** Tilt card animation
+ ** Tilt card animation for Desktop and Laptop
+ *! ResizeObserver is observing width of 1200 so desktop falling less than that width will not have tilt effect
  */
 (function () {
-  VanillaTilt.init(document.querySelectorAll('.about__card'), {
-    max: 25,
-    speed: 400,
-    scale: 1.1,
-    glare: true,
-    'max-glare': 0.8,
-  });
+  const bodyObserver = new ResizeObserver(entries => {
+    const bodyObj = entries[0];
+    console.log(bodyObj.contentRect.width);
 
-  VanillaTilt.init(document.querySelectorAll('.works__card'), {
-    max: 25,
-    speed: 400,
-    scale: 1.1,
-    glare: true,
-    'max-glare': 0.5,
+    if (bodyObj.contentRect.width >= 1200) {
+      //* Tilt Animations
+      VanillaTilt.init(document.querySelectorAll('.about__card'), {
+        max: 25,
+        speed: 400,
+        scale: 1.1,
+        glare: true,
+        'max-glare': 0.3,
+      });
+
+      VanillaTilt.init(document.querySelectorAll('.about__quality'), {
+        max: 25,
+        speed: 400,
+        scale: 1.1,
+        glare: true,
+        'max-glare': 0.1,
+      });
+
+      VanillaTilt.init(document.querySelectorAll('.works__card'), {
+        max: 25,
+        speed: 400,
+        scale: 1.1,
+        glare: true,
+        'max-glare': 0.5,
+      });
+
+      //* Custom cursor and cursor hover animations
+      const mouseCursor = document.querySelector('.cursor');
+      const mouseHoverEl = document.querySelectorAll('.cursor-hover');
+
+      window.addEventListener('mousemove', e => {
+        mouseCursor.style.left = e.clientX + 'px';
+        mouseCursor.style.top = e.clientY + 'px';
+      });
+
+      // On hovering scale and fill cursor
+      mouseHoverEl.forEach(el => {
+        el.addEventListener('mouseover', () => {
+          mouseCursor.classList.add('hover');
+        });
+
+        el.addEventListener('mouseleave', () => {
+          mouseCursor.classList.remove('hover');
+        });
+      });
+
+      // On hovering section title, show gifs
+      document.querySelectorAll('.section__title-gif').forEach(el => {
+        el.addEventListener('mousemove', e => {
+          const gif = e.target.childNodes[1];
+          gif.classList.add('show');
+          gif.style.left = e.clientX + 25 + 'px';
+          gif.style.top = e.clientY + 25 + 'px';
+        });
+        el.addEventListener('mouseleave', e => {
+          const gif = e.target.childNodes[1];
+          gif.classList.remove('show');
+        });
+      });
+    }
   });
+  bodyObserver.observe(document.body);
 })();
 
 /**
@@ -120,42 +172,4 @@ import 'vanilla-tilt';
       rootMargin: '20px',
     }
   ).observe(document.querySelector('#works'));
-})();
-
-/**
- * *Custom cursor and cursor hover animations
- */
-(function () {
-  const mouseCursor = document.querySelector('.cursor');
-  const mouseHoverEl = document.querySelectorAll('.cursor-hover');
-
-  window.addEventListener('mousemove', e => {
-    mouseCursor.style.left = e.clientX + 'px';
-    mouseCursor.style.top = e.clientY + 'px';
-  });
-
-  // On hovering scale and fill cursor
-  mouseHoverEl.forEach(el => {
-    el.addEventListener('mouseover', () => {
-      mouseCursor.classList.add('hover');
-    });
-
-    el.addEventListener('mouseleave', () => {
-      mouseCursor.classList.remove('hover');
-    });
-  });
-
-  // On hovering section title, show gifs
-  document.querySelectorAll('.section__title-gif').forEach(el => {
-    el.addEventListener('mousemove', e => {
-      const gif = e.target.childNodes[1];
-      gif.classList.add('show');
-      gif.style.left = e.clientX + 25 + 'px';
-      gif.style.top = e.clientY + 25 + 'px';
-    });
-    el.addEventListener('mouseleave', e => {
-      const gif = e.target.childNodes[1];
-      gif.classList.remove('show');
-    });
-  });
 })();
