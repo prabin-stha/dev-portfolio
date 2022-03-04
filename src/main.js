@@ -116,6 +116,7 @@ import 'vanilla-tilt';
   contactObserver.observe(contactContainer);
   contactContainer.classList.add('section__hidden');
 
+  //* Active Links Change on Windows Scroll
   // Active link change for navigation menu
   const sections = document.querySelectorAll('.section');
   const sectionsScrollObserver = new IntersectionObserver(
@@ -125,7 +126,7 @@ import 'vanilla-tilt';
       document
         .querySelector('a[href="#' + entry.target.id + '"')
         .classList.add('active');
-      ['header', 'about', 'works', 'skills', 'contact']
+      ['header', 'about', 'works', 'contact']
         .filter(el => el != entry.target.id)
         .forEach(el => {
           const element = document.querySelector('a[href="#' + el + '"]');
@@ -136,8 +137,7 @@ import 'vanilla-tilt';
     },
     {
       root: null,
-      threshold: 0.8,
-      rootMargin: '20px',
+      threshold: 0.7,
     }
   );
   sections.forEach(section => {
@@ -150,7 +150,7 @@ import 'vanilla-tilt';
       const [entry] = entries;
       if (!entry.isIntersecting) return;
       document.querySelector('a[href="#works"').classList.add('active');
-      ['header', 'about', 'skills', 'contact']
+      ['header', 'about', 'contact']
         .filter(el => el != entry.target.id)
         .forEach(el => {
           const element = document.querySelector('a[href="#' + el + '"]');
@@ -161,8 +161,20 @@ import 'vanilla-tilt';
     },
     {
       root: null,
-      threshold: 0.5,
-      rootMargin: '20px',
+      threshold: 0.7,
     }
   ).observe(document.querySelector('#works'));
 })();
+
+//* Function for Making Navigation Bar Sticky to the Footer
+const footer = document.querySelector('.footer');
+const footerObserver = new IntersectionObserver((entries, observer) => {
+  if (!entries[0].isIntersecting) return;
+  const nav = document.querySelector('.nav');
+  observer.unobserve(entries[0].target);
+  observer.observe(footer);
+  entries[0].isIntersecting
+    ? (nav.style.bottom = entries[0].intersectionRect.height + 8 + 'px')
+    : (nav.style.bottom = 16 + 'px');
+});
+footerObserver.observe(footer);
