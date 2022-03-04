@@ -2,12 +2,11 @@ import 'vanilla-tilt';
 
 /**
  ** Tilt card animation for Desktop and Laptop
- *! ResizeObserver is observing width of 1200 so desktop falling less than that width will not have tilt effect
+ *! ResizeObserver is observing width of 1200 so desktop falling less than that width will not have tilt effect, section title hover gif animation and custom cursor animation
  */
 (function () {
   const bodyObserver = new ResizeObserver(entries => {
     const bodyObj = entries[0];
-    console.log(bodyObj.contentRect.width);
 
     if (bodyObj.contentRect.width >= 1200) {
       //* Tilt Animations
@@ -95,7 +94,7 @@ import 'vanilla-tilt';
     section.classList.add('section__hidden');
   });
 
-  // Animation for contact button line and social media icons
+  // Animation for contact section fade-in and contact button line
   const contactContainer = document.querySelector(
     '.section__contact-container'
   );
@@ -107,12 +106,6 @@ import 'vanilla-tilt';
       document
         .querySelector('.contact__form')
         .classList.add('contact__button-show-line');
-      document
-        .querySelector('.contact__social-links')
-        .classList.add('contact__show-socials');
-      document
-        .querySelector('.contact__social-line')
-        .classList.add('contact__show-social-line');
       observer.unobserve(entry.target);
     },
     {
