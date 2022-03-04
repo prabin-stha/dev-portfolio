@@ -76,6 +76,7 @@ import 'vanilla-tilt';
  ** Observing current position of window and applying section animations
  */
 (function () {
+  // Fade-in Animation for About and Contact Section
   const sectionContainer = document.querySelectorAll('.section__container');
   const sectionObserver = new IntersectionObserver(
     (entries, observer) => {
@@ -94,7 +95,7 @@ import 'vanilla-tilt';
     section.classList.add('section__hidden');
   });
 
-  // Animation for contact section fade-in and contact button line
+  // Fade-in and Contact Button Line Animation for Works Section
   const contactContainer = document.querySelector(
     '.section__contact-container'
   );
@@ -115,9 +116,13 @@ import 'vanilla-tilt';
   );
   contactObserver.observe(contactContainer);
   contactContainer.classList.add('section__hidden');
+})();
 
-  //* Active Links Change on Windows Scroll
-  // Active link change for navigation menu
+/**
+ **  Active Links Change on Windows Scroll
+ */
+(function () {
+  // Active link Change for Home, About and Contact Section
   const sections = document.querySelectorAll('.section');
   const sectionsScrollObserver = new IntersectionObserver(
     entries => {
@@ -144,8 +149,9 @@ import 'vanilla-tilt';
     sectionsScrollObserver.observe(section);
   });
 
-  // Active link for works section
-  new IntersectionObserver(
+  // Active link Change for Works Section
+  const workSection = document.querySelector('#works');
+  const workSectionScroll = new IntersectionObserver(
     entries => {
       const [entry] = entries;
       if (!entry.isIntersecting) return;
@@ -163,18 +169,23 @@ import 'vanilla-tilt';
       root: null,
       threshold: 0.7,
     }
-  ).observe(document.querySelector('#works'));
+  );
+  workSectionScroll.observe(workSection);
 })();
 
-//* Function for Making Navigation Bar Sticky to the Footer
-const footer = document.querySelector('.footer');
-const footerObserver = new IntersectionObserver((entries, observer) => {
-  if (!entries[0].isIntersecting) return;
-  const nav = document.querySelector('.nav');
-  observer.unobserve(entries[0].target);
-  observer.observe(footer);
-  entries[0].isIntersecting
-    ? (nav.style.bottom = entries[0].intersectionRect.height + 8 + 'px')
-    : (nav.style.bottom = 16 + 'px');
-});
-footerObserver.observe(footer);
+/**
+ ** Function for Making Navigation Bar Sticky to the Footer
+ */
+(function () {
+  const footer = document.querySelector('.footer');
+  const footerObserver = new IntersectionObserver((entries, observer) => {
+    if (!entries[0].isIntersecting) return;
+    const nav = document.querySelector('.nav');
+    observer.unobserve(entries[0].target);
+    observer.observe(footer);
+    entries[0].isIntersecting
+      ? (nav.style.bottom = entries[0].intersectionRect.height + 8 + 'px')
+      : (nav.style.bottom = 16 + 'px');
+  });
+  footerObserver.observe(footer);
+})();
