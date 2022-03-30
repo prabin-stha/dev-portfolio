@@ -188,7 +188,6 @@ img {
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 8px;
   color: var(--white-light);
-  z-index: 5;
   overflow: hidden;
   backdrop-filter: blur(15px);
   transition: color 100ms ease-in;
@@ -221,7 +220,7 @@ img {
 .button::before {
   position: absolute;
   top: 50%;
-  right: 50%;
+  right: 100%;
   content: '';
   height: 1px;
   background-color: var(--white-light);
@@ -231,7 +230,7 @@ img {
 .button::after {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 100%;
   content: '';
   height: 1px;
   background-color: var(--white-light);
@@ -342,8 +341,9 @@ img {
 
 .header__logo {
   color: var(--white-light);
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   transition: color, transform 200ms var(--cubic-bezier);
+  font-weight: var(--font-weight-medium);
 }
 
 .header__logo:hover {
