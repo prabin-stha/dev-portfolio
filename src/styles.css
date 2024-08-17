@@ -669,6 +669,7 @@ img {
   letter-spacing: 2px;
   padding-bottom: 0.5rem;
   display: flex;
+  align-items: center;
   gap: 4px;
 }
 
